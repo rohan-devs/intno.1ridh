@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        /* Your custom CSS resets for email */
+        /*
+     * Here is where you can add your global email CSS resets.
+     *
+     * We use a custom, email-specific CSS reset, instead
+     * of Tailwind's web-optimized `base` layer.
+     *
+     * Styles defined here will be inlined.
+    */
+        img {
+            max-width: 100%;
+            vertical-align: middle;
+            line-height: 1
+        }
+
+        /* Tailwind CSS components */
+        /**
+     * @import here any custom CSS components - that is, CSS that
+     * you'd want loaded before the Tailwind utilities, so the
+     * utilities can still override them.
+    */
+        /* Tailwind CSS utility classes */
+        .absolute {
+            position: absolute
+        }
+
+        .m-0 {
+            margin: 0
+        }
+
+        .m-10 {
+            margin: 40px
+        }
+
+        .m-12 {
+            margin: 48px
+        }
+
+        .m-6 {
+            margin: 24px
+        }
+
+        .m-8 {
+            margin: 32px
+        }
+
+        .my-4 {
+            margin-top: 16px;
+            margin-bottom: 16px
+        }
+
+        .mb-6 {
+            margin-bottom: 24px
+        }
+
+        .block {
+            display: block
+        }
+
+        .inline-block {
+            display: inline-block
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .table {
+            display: table
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .h-full {
+            height: 100%
+        }
+
+        .min-h-full {
+            min-height: 100%
+        }
+
+        .w-\[552px\] {
+            width: 552px
+        }
+
+        .w-auto {
+            width: auto
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .max-w-full {
+            max-width: 100%
+        }
+
+        .cursor-pointer {
+            cursor: pointer
+        }
+
+        .grid-rows-3 {
+            grid-template-rows: repeat(3, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .justify-start {
+            justify-content: flex-start
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .gap-2 {
+            gap: 8px
+        }
+
+        .rounded {
+            border-radius: 4px
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .rounded-xl {
+            border-radius: 12px
+        }
+
+        .border-0 {
+            border-width: 0px
+        }
+
+        .border-2 {
+            border-width: 2px
+        }
+
+        .border-solid {
+            border-style: solid
+        }
+
+        .border-black {
+            border-color: #000
+        }
+
+        .bg-\[\#054274\] {
+            background-color: #054274
+        }
+
+        .bg-black {
+            background-color: #000
+        }
+
+        .bg-gray-100 {
+            background-color: #f3f4f6
+        }
+
+        .bg-green-300 {
+            background-color: #86efac
+        }
+
+        .bg-indigo-500 {
+            background-color: #6366f1
+        }
+
+        .bg-indigo-700 {
+            background-color: #4338ca
+        }
+
+        .bg-red-200 {
+            background-color: #fecaca
+        }
+
+        .bg-red-300 {
+            background-color: #fca5a5
+        }
+
+        .bg-slate-300 {
+            background-color: #cbd5e1
+        }
+
+        .bg-slate-50 {
+            background-color: #f8fafc
+        }
+
+        .bg-white {
+            background-color: #fff
+        }
+
+        .bg-yellow-500 {
+            background-color: #eab308
+        }
+
+        .p-0 {
+            padding: 0
+        }
+
+        .px-6 {
+            padding-left: 24px;
+            padding-right: 24px
+        }
+
+        .py-4 {
+            padding-top: 16px;
+            padding-bottom: 16px
+        }
+
+        .text-left {
+            text-align: left
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-right {
+            text-align: right
+        }
+
+        .text-2xl {
+            font-size: 24px
+        }
+
+        .text-base {
+            font-size: 16px
+        }
+
+        .text-sm {
+            font-size: 14px
+        }
+
+        .text-xs {
+            font-size: 12px
+        }
+
+        .font-extrabold {
+            font-weight: 800
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .italic {
+            font-style: italic
+        }
+
+        .leading-12 {
+            line-height: 48px
+        }
+
+        .leading-6 {
+            line-height: 24px
+        }
+
+        .leading-none {
+            line-height: 1
+        }
+
+        .text-black {
+            color: #000
+        }
+
+        .text-slate-50 {
+            color: #f8fafc
+        }
+
+        .text-slate-700 {
+            color: #334155
+        }
+
+        .text-white {
+            color: #fff
+        }
+
+        .mso-font-width-\[150\%\] {
+            mso-font-width: 150%
+        }
+
+        .shadow-sm {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)
+        }
+
+        .\[-webkit-font-smoothing\:antialiased\] {
+            -webkit-font-smoothing: antialiased
+        }
+
+        .\[text-decoration\:none\] {
+            text-decoration: none
+        }
+
+        .\[word-break\:break-word\] {
+            word-break: break-word
+        }
+
+        /* Your custom utility classes */
+        /*
+     * Here is where you can define your custom utility classes.
+     *
+     * We wrap them in the `utilities` @layer directive, so
+     * that Tailwind moves them to the correct location.
+     *
+     * More info:
+     * https://tailwindcss.com/docs/functions-and-directives#layer
+    */
+        .hover\:bg-indigo-600:hover {
+            background-color: #4f46e5 !important
+        }
+
+        @media (max-width: 600px) {
+            .sm\:leading-8 {
+                line-height: 32px !important
+            }
+        }
+    </style>
+
+</head>
+
+<body class="m-0 p-0 w-full [word-break:break-word] [-webkit-font-smoothing:antialiased] bg-white">
+
+    <div class="hidden">
+        Please confirm your email address in order to activate your account.
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+        &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+    </div>
+    <div role="article" aria-roledescription="email" aria-label="Confirm your email address" lang="en">
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 20px;
+            }
+
+            button {
+
+                background-color: #f3f7fe;
+                color: #3b82f6;
+                border: none;
+                border-radius: 8px;
+           
+                height: 45px;
+                transition: .3s;
+            }
+
+            button:hover {
+                background-color: #054274;
+                box-shadow: 0 0 0 5px #3b83f65f;
+                color: #fff;
+            }
+
+            .card {
+                max-width: 400px;
+                background-color: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                margin: 20px auto;
+            }
+
+            .card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            h1,
+            h3,
+            p {
+                margin: 0;
+            }
+
+            h1 {
+                font-size: 1.1em;
+                color: #000;
+            }
+
+            .info-line {
+                padding: 1px;
+                border-radius: 8px;
+                margin-bottom: 2px;
+                display: inline-block;
+                width: 100%;
+                color: #000;
+                font-size: 0.9em;
+                font-weight: bold;
+            }
+            .pill{
+
+                display: flex;
+                justify-content:left;
+                align-items: center;
+            }
+
+            .info-timeslots {
+                padding: 1px;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                display: inline-block;
+                width: 100%;
+                color: #000;
+                font-size: 0.9em;
+                font-weight: bold;
+            }
+
+            .date-box {
+                border-radius: 8px;
+                margin-bottom: 5px;
+                display: inline-block;
+                width: 70%;
+            }
+            .pill{
+                display: flex;
+                justify-content:start;
+                align-items: center;
+            }
+
+            .time-box {
+                background-color: #f0f0f0;
+                /* Light grey for time */
+                padding: 5px;
+                border-radius: 8px;
+                margin-right: 5px;
+                font-size: 0.8em;
+                display: inline-block;
+            }
+
+            .agent-info {
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 8px;
+                margin-top: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .agent-info strong {
+                font-weight: bold;
+                color: navy;
+            }
+
+            .cancel-button {
+                background-color: #ff6961;
+                color: #fff;
+                padding: 10px;
+                border-radius: 5px;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .footer-text {
+                font-size: 0.7em;
+                color: #666;
+                margin-top: 10px;
+            }
+
+            .confirmed-box {
+                padding: 5px;
+                border-radius: 5px;
+                margin-top: 10px;
+                background-color: #DFF2BF;
+            }
+
+            .status-word {
+                font-weight: bold;
+            }
+
+            .status-word.confirmed {
+                color: #228B22;
+                /* Green color for Confirmed */
+            }
+
+            .status-word.declined,
+            .status-word.cancelled {
+                color: #ff6f61;
+                /* Red color for Declined and Cancelled */
+            }
+
+            .status-word.dark-grey {
+                color: #333;
+                /* Dark grey for other statuses */
+            }
+
+            .landlord-remarks {
+                margin-top: 10px;
+                color: #000;
+                font-weight: bold;
+            }
+        </style>
+        </head>
+
+        <body>
+            <div class="">
+                <table align="center" class=" bg-[#054274] rounded-xl border-solid ">
+                    <tr>
+                        <td class="w-[552px] max-w-full">
+                            <div class=" flex justify-start">
+                                <a href="">
+                                    <img src="images/logolease.svg" width="150" height="50" alt="leasehub">
+                                </a>
+                            </div>
+
+                            <table class="w-full">
+                                <tr>
+
+                                    <td class="m-10   text-base text-slate-700 bg-white rounded shadow-sm ">
+                                        <div class=" ">
+
+                                            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                alt="prperty image"
+                                                height="250px"
+                                                width="100%">
+                                        </div>
+                                        <div class="m-6">
+
+
+
+                                            <h1 class="m-0 mb-6 text-2xl sm:leading-8 text-black font-semibold">
+                                                {{ property_name }} <br>
+                                                <div>
+
+                                                    Beds: {{ num_bed }} | Baths: {{ num_bath }} | Rent: ${{ price }}
+                                                </div>
+                                            </h1>
+
+
+                                            <p class="m-0 leading-6">
+                                                Agent Name: {{ agent_name }} <br> Contact No: {{ phone }} <br> Email ID:
+                                                {{ email_id }}
+                                                <br>
+                                            <p class="info-timeslots" {% if requested_timeslot %}{% else
+                                                %}style="display: none;" {% endif %}><strong>Requested
+                                                    Timeslots:</strong></p>
+                                            <div class="timeslots" {% if requested_timeslot %}{% else
+                                                %}style="display: none;" {% endif %}>
+                                                {% for date, times in requested_timeslot.items %}
+                                                <div class="date-box">{{ date }}:
+                                                    {% for time in times %}
+                                                    <div class="time-box" style="font-size: 0.8em;">{{ time }}</div>
+                                                    {% endfor %}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            <br>
+
+                                            {% if status == 'Awaiting Confirmation' and requested_timeslot %}
+                                            <Strong>
+                                                Requested Timeslot:
+                                            </Strong>
+                                            {{ requested_timeslot_date }}
+                                            {{ requested_timeslot }}
+                                            {% endif %}
+                                            </p>
+                                            
+                                            <div>
+                                                
+                                                
+                                                {% if status == 'confirmed' %}
+                                                <div class="pill">
+                                                    <div
+                                                    class="bg-green-300  text-center rounded-full flex  border-solid border-2 font-extrabold  ">
+                                                    {{ status }}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if status == 'Awaiting Confirmation' or status == 'On-Hold' %}
+                                            <div class="pill">
+                                                <div
+                                                class="bg-yellow-500 rounded-full  border-solid border-2 font-extrabold  ">
+                                                {{ status }}
+                                                
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if status == 'Declined by agent'or status == 'Declined by landlord'  %}
+                                        <div class="pill">
+                                            <div
+                                            class="bg-red-300 rounded-full  border-solid border-2  font-extrabold ">
+                                            
+                                            {{ status }}
+                                            
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                {% if status == 'confirmed' %}
+                                
+                                
+                                
+                                <div class="grid  grid-rows-3   m-6 rounded-xl font-semibold  ">
+                                    
+                                    <div class="">
+                                        Confirmed time: <span>{{ confirmed_time }}</span>
+                                    </div>
+                                    <div class="">
+                                        Key Information: <span>{{ lockbox_info }}</span>
+                                    </div>
+                                    <div class="">
+                                        Remarks: <span>{{ remarks }}</span>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                {% endif %}
+                                {% if status == 'Declined by agent' %}
+                                <div class=" font-extrabold">Reason:{{ reason }}</div>
+                                <div class=" flex justify-center m-6">
+                                    
+                                    <button class="button">Explore new properties</button>
+                                    
+                                </div>
+                                {% endif %}
+                                {% if status == 'Declined by landlord' %}
+                                <div class=" font-extrabold">Reason:{{ reason }}</div>
+                                <div class=" flex justify-center m-6 ">
+                                    
+                                    <button class="button">Explore new properties</button>
+                                    
+                                </div>
+                                {% endif %}
+                                {% if status == 'Awaiting Confirmation' %}
+                                <div class=" flex justify-center m-6">
+                                    
+                                    <button class="button">Accept or Reject</button>
+                                    
+                                </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </div>
+                        <tr role="separator">
+                            <td class="leading-12">&zwj;</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center  text-xs m-12 ">
+                                <p class="m-0 italic text-white ">
+                                    Powered by LeaseHub | If you face any issues, please contact
+                                    <a class="text-white" href="mailto:support@avaasa.com">
+                                                support@avaasa.com
+                                            </a>
+                                        </p>
+                                    </td>
+                                <tr role="separator">
+                                    <td class="leading-12">&zwj;</td>
+                                </tr>
+                    </tr>
+                </table>
+                </td>
+                </tr>
+                </table>
+            </div>
+        </body>
+
+</html>
