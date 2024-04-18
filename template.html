@@ -36,6 +36,7 @@
             margin: 0
         }
 
+
         .m-10 {
             margin: 40px
         }
@@ -127,6 +128,10 @@
 
         .justify-center {
             justify-content: center
+        }
+
+        .p-2 {
+            padding: 5px;
         }
 
         .gap-2 {
@@ -385,7 +390,7 @@
                 color: #3b82f6;
                 border: none;
                 border-radius: 8px;
-           
+
                 height: 45px;
                 transition: .3s;
             }
@@ -436,11 +441,13 @@
                 font-size: 0.9em;
                 font-weight: bold;
             }
-            .pill{
+
+            .pill {
 
                 display: flex;
-                justify-content:left;
+                justify-content: left;
                 align-items: center;
+
             }
 
             .info-timeslots {
@@ -460,9 +467,10 @@
                 display: inline-block;
                 width: 70%;
             }
-            .pill{
+
+            .pill {
                 display: flex;
-                justify-content:start;
+                justify-content: start;
                 align-items: center;
             }
 
@@ -559,9 +567,7 @@
                                         <div class=" ">
 
                                             <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                alt="prperty image"
-                                                height="250px"
-                                                width="100%">
+                                                alt="prperty image" height="250px" width="100%">
                                         </div>
                                         <div class="m-6">
 
@@ -583,125 +589,127 @@
                                             <p class="info-timeslots" {% if requested_timeslot %}{% else
                                                 %}style="display: none;" {% endif %}><strong>Requested
                                                     Timeslots:</strong></p>
-                                            <div class="timeslots" {% if requested_timeslot %}{% else
-                                                %}style="display: none;" {% endif %}>
-                                                {% for date, times in requested_timeslot.items %}
-                                                <div class="date-box">{{ date }}:
-                                                    {% for time in times %}
-                                                    <div class="time-box" style="font-size: 0.8em;">{{ time }}</div>
-                                                    {% endfor %}
-                                                </div>
-                                                {% endfor %}
-                                            </div>
-                                            <br>
 
+                                                    <div class="timeslots" {% if requested_timeslot  %}{% else %}style="display: none;" {% endif %}>
+                                                        {% for timeslot_item in requested_timeslot %}
+                                                            {% for date, times in timeslot_item.items() %}
+                                                                <div class="date-box">{{ date }}:
+                                                                    <div class="time-box" style="font-size: 0.8em;">{{ times }}</div>
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endfor %}
+                                                    </div>
+                                                    
+                                            <br>
+<!-- 
                                             {% if status == 'Awaiting Confirmation' and requested_timeslot %}
                                             <Strong>
                                                 Requested Timeslot:
                                             </Strong>
                                             {{ requested_timeslot_date }}
                                             {{ requested_timeslot }}
-                                            {% endif %}
+                                            {% endif %} -->
                                             </p>
-                                            
+
                                             <div>
-                                                
-                                                
+
+
                                                 {% if status == 'confirmed' %}
                                                 <div class="pill">
-                                                    <div
-                                                    class="bg-green-300  text-center rounded-full flex  border-solid border-2 font-extrabold  ">
-                                                    {{ status }}
+                                                    <div class="bg-green-300  text-center rounded-full flex  border-solid border-2 font-extrabold p-2
+                                                      ">
+                                                        {{ status }}
+                                                    </div>
                                                 </div>
+                                                {% endif %}
+                                                {% if status == 'Awaiting Confirmation' or status == 'On-Hold' %}
+                                                <div class="pill">
+                                                    <div
+                                                        class="bg-yellow-500 rounded-full  border-solid border-2 font-extrabold p-2  ">
+                                                        {{ status }}
+
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                                {% if status == 'Declined by agent'or status == 'Declined by landlord'
+                                                %}
+                                                <div class="pill">
+                                                    <div
+                                                        class="bg-red-300 rounded-full  border-solid border-2  font-extrabold p-2 ">
+
+                                                        {{ status }}
+
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+
+                                            {% if status == 'confirmed' %}
+
+
+
+                                            <div class="grid  grid-rows-3   m-6 rounded-xl font-semibold  ">
+
+                                                <div class="">
+                                                    Confirmed time: <span>{{ confirmed_time }}</span>
+                                                </div>
+                                                <div class="">
+                                                    Key Information: <span>{{ lockbox_info }}</span>
+                                                </div>
+                                                <div class="">
+                                                    Remarks: <span>{{ remarks }}</span>
+                                                </div>
+
+
                                             </div>
                                             {% endif %}
-                                            {% if status == 'Awaiting Confirmation' or status == 'On-Hold' %}
-                                            <div class="pill">
-                                                <div
-                                                class="bg-yellow-500 rounded-full  border-solid border-2 font-extrabold  ">
-                                                {{ status }}
-                                                
+                                            {% if status == 'Declined by agent' %}
+                                            <div class=" font-extrabold">Reason:{{ reason }}</div>
+                                            <div class=" flex justify-center m-6">
+
+                                                <button class="button">Explore new properties</button>
+
                                             </div>
-                                        </div>
-                                        {% endif %}
-                                        {% if status == 'Declined by agent'or status == 'Declined by landlord'  %}
-                                        <div class="pill">
-                                            <div
-                                            class="bg-red-300 rounded-full  border-solid border-2  font-extrabold ">
-                                            
-                                            {{ status }}
-                                            
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                </div>
-                                
-                                {% if status == 'confirmed' %}
-                                
-                                
-                                
-                                <div class="grid  grid-rows-3   m-6 rounded-xl font-semibold  ">
-                                    
-                                    <div class="">
-                                        Confirmed time: <span>{{ confirmed_time }}</span>
-                                    </div>
-                                    <div class="">
-                                        Key Information: <span>{{ lockbox_info }}</span>
-                                    </div>
-                                    <div class="">
-                                        Remarks: <span>{{ remarks }}</span>
-                                    </div>
-                                    
-                                    
-                                </div>
-                                {% endif %}
-                                {% if status == 'Declined by agent' %}
-                                <div class=" font-extrabold">Reason:{{ reason }}</div>
-                                <div class=" flex justify-center m-6">
-                                    
-                                    <button class="button">Explore new properties</button>
-                                    
-                                </div>
-                                {% endif %}
-                                {% if status == 'Declined by landlord' %}
-                                <div class=" font-extrabold">Reason:{{ reason }}</div>
-                                <div class=" flex justify-center m-6 ">
-                                    
-                                    <button class="button">Explore new properties</button>
-                                    
-                                </div>
-                                {% endif %}
-                                {% if status == 'Awaiting Confirmation' %}
-                                <div class=" flex justify-center m-6">
-                                    
-                                    <button class="button">Accept or Reject</button>
-                                    
-                                </div>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    </div>
-                        <tr role="separator">
-                            <td class="leading-12">&zwj;</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center  text-xs m-12 ">
-                                <p class="m-0 italic text-white ">
-                                    Powered by LeaseHub | If you face any issues, please contact
-                                    <a class="text-white" href="mailto:support@avaasa.com">
-                                                support@avaasa.com
-                                            </a>
-                                        </p>
+                                            {% endif %}
+                                            {% if status == 'Declined by landlord' %}
+                                            <div class=" font-extrabold">Reason:{{ reason }}</div>
+                                            <div class=" flex justify-center m-6 ">
+
+                                                <button class="button">Explore new properties</button>
+
+                                            </div>
+                                            {% endif %}
+                                            {% if status == 'Awaiting Confirmation' %}
+                                            <div class=" flex justify-center m-6">
+
+                                                <button class="button">Accept or Reject</button>
+
+                                            </div>
+                                            {% endif %}
                                     </td>
-                                <tr role="separator">
-                                    <td class="leading-12">&zwj;</td>
                                 </tr>
-                    </tr>
-                </table>
-                </td>
-                </tr>
-                </table>
             </div>
-        </body>
+            <tr role="separator">
+                <td class="leading-12">&zwj;</td>
+            </tr>
+            <tr>
+                <td class="text-center  text-xs m-12 ">
+                    <p class="m-0 italic text-white ">
+                        Powered by LeaseHub | If you face any issues, please contact
+                        <a class="text-white" href="mailto:support@avaasa.com">
+                            support@avaasa.com
+                        </a>
+                    </p>
+                </td>
+            <tr role="separator">
+                <td class="leading-12">&zwj;</td>
+            </tr>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+    </div>
+</body>
 
 </html>

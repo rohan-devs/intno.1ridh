@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm your email address</title>
+    <title></title>
     <style>
         /* Your custom CSS resets for email */
         /*
@@ -35,6 +35,7 @@
         .m-0 {
             margin: 0
         }
+
 
         .m-10 {
             margin: 40px
@@ -127,6 +128,10 @@
 
         .justify-center {
             justify-content: center
+        }
+
+        .p-2 {
+            padding: 5px;
         }
 
         .gap-2 {
@@ -385,7 +390,7 @@
                 color: #3b82f6;
                 border: none;
                 border-radius: 8px;
-           
+
                 height: 45px;
                 transition: .3s;
             }
@@ -436,11 +441,13 @@
                 font-size: 0.9em;
                 font-weight: bold;
             }
-            .pill{
+
+            .pill {
 
                 display: flex;
-                justify-content:left;
+                justify-content: left;
                 align-items: center;
+
             }
 
             .info-timeslots {
@@ -460,9 +467,10 @@
                 display: inline-block;
                 width: 70%;
             }
-            .pill{
+
+            .pill {
                 display: flex;
-                justify-content:start;
+                justify-content: start;
                 align-items: center;
             }
 
@@ -559,9 +567,7 @@
                                         <div class=" ">
 
                                             <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                alt="prperty image"
-                                                height="250px"
-                                                width="100%">
+                                                alt="prperty image" height="250px" width="100%">
                                         </div>
                                         <div class="m-6">
 
@@ -577,75 +583,83 @@
 
 
                                             <p class="m-0 leading-6">
-                                                Agent Name: Rohan Shah <br> Contact No:  <br> Email ID:
+                                                Agent Name: Rohan Shah <br> Contact No: 123-456-7890 <br> Email ID:
                                                 rohanshah6982@gmail.com
                                                 <br>
                                             <p class="info-timeslots" ><strong>Requested
                                                     Timeslots:</strong></p>
-                                            <div class="timeslots" >
+
+                                                    <div class="timeslots" >
+                                                        
+                                                            
+                                                                <div class="date-box">2022-12-01:
+                                                                    <div class="time-box" style="font-size: 0.8em;">10:00 AM-2:00 PM</div>
+                                                                </div>
+                                                            
+                                                                <div class="date-box">2022-12-02:
+                                                                    <div class="time-box" style="font-size: 0.8em;">11:00 AM-3:00 PM</div>
+                                                                </div>
+                                                            
+                                                        
+                                                    </div>
+                                                    
+                                            <br>
+<!-- 
+                                             -->
+                                            </p>
+
+                                            <div>
+
+
+                                                
+                                                
+                                                
+                                                <div class="pill">
+                                                    <div
+                                                        class="bg-red-300 rounded-full  border-solid border-2  font-extrabold p-2 ">
+
+                                                        Declined by agent
+
+                                                    </div>
+                                                </div>
                                                 
                                             </div>
-                                            <br>
 
                                             
-                                            <Strong>
-                                                Requested Timeslot:
-                                            </Strong>
-                                            26th of March
-                                            2:00pm
                                             
-                                            </p>
-                                            
-                                            <div>
-                                                
-                                                
-                                                
-                                            
-                                            <div class="pill">
-                                                <div
-                                                class="bg-yellow-500 rounded-full  border-solid border-2 font-extrabold  ">
-                                                Awaiting Confirmation
-                                                
+                                            <div class=" font-extrabold">Reason:reason given by the landlord</div>
+                                            <div class=" flex justify-center m-6">
+
+                                                <button class="button">Explore new properties</button>
+
                                             </div>
-                                        </div>
-                                        
-                                        
-                                </div>
-                                
-                                
-                                
-                                
-                                
-                                <div class=" flex justify-center m-6">
-                                    
-                                    <button class="button">Accept or Reject</button>
-                                    
-                                </div>
-                                
-                            </td>
-                        </tr>
-                    </div>
-                        <tr role="separator">
-                            <td class="leading-12">&zwj;</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center  text-xs m-12 ">
-                                <p class="m-0 italic text-white ">
-                                    Powered by LeaseHub | If you face any issues, please contact
-                                    <a class="text-white" href="mailto:support@avaasa.com">
-                                                support@avaasa.com
-                                            </a>
-                                        </p>
+                                            
+                                            
+                                            
                                     </td>
-                                <tr role="separator">
-                                    <td class="leading-12">&zwj;</td>
                                 </tr>
-                    </tr>
-                </table>
-                </td>
-                </tr>
-                </table>
             </div>
-        </body>
+            <tr role="separator">
+                <td class="leading-12">&zwj;</td>
+            </tr>
+            <tr>
+                <td class="text-center  text-xs m-12 ">
+                    <p class="m-0 italic text-white ">
+                        Powered by LeaseHub | If you face any issues, please contact
+                        <a class="text-white" href="mailto:support@avaasa.com">
+                            support@avaasa.com
+                        </a>
+                    </p>
+                </td>
+            <tr role="separator">
+                <td class="leading-12">&zwj;</td>
+            </tr>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+    </div>
+</body>
 
 </html>
